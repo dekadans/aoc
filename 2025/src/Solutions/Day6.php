@@ -14,42 +14,37 @@ class Day6
         $numberRows = array_slice($rows, 0, -1);
 
         preg_match_all('/[+*]\s+/', array_last($rows), $columnMatches);
-        $colDefs = $columnMatches[0]; // E.g. ["+    ", "*  "]
+        $operations = $columnMatches[0]; // E.g. ["+    ", "*  ", ...]
 
-        $paddedCols = [];
-        for ($i = 0; $i < count($colDefs); $i++) {
-            $columnLength = strlen($colDefs[$i]);
+        $problems = []; // E.g. [ ["123 ", " 45 ", "  6 "], ... ]
+        for ($i = 0; $i < count($operations); $i++) {
+            $columnLength = strlen($operations[$i]);
             $col = [];
 
             for ($j = 0; $j < count($numberRows); $j++) {
                 $col[] = substr($numberRows[$j], 0, $columnLength);
                 $numberRows[$j] = substr($numberRows[$j], $columnLength);
             }
-            $paddedCols[] = $col;
+            $problems[] = $col;
         }
 
         $part1 = [];
-        for ($i = 0; $i < count($colDefs); $i++) {
-            $operation = $colDefs[$i][0];
-            $part1[] = $this->calculate($operation, $paddedCols[$i]);
+        for ($i = 0; $i < count($problems); $i++) {
+            $part1[] = $this->calculate($operations[$i][0], $problems[$i]);
         }
 
         $part2 = [];
-        for ($i = 0; $i < count($colDefs); $i++) {
-            $c = $colDefs[$i];
-            $operation = $c[0];
-            $numbers = array_fill(0, strlen($c), '');
+        for ($i = 0; $i < count($problems); $i++) {
+            $operation = $operations[$i][0];
+            $columnLength = strlen($operations[$i]);
+            $numbers = array_fill(0, $columnLength, '');
 
-            for ($k = 0; $k < strlen($c); $k++) {
-                for ($j = 0; $j < count($paddedCols[$i]); $j++) {
-
-                    $num = $paddedCols[$i][$j];
-
-                    $numbers[$k] .= array_reverse(str_split($num))[$k];
+            for ($numPos = 0; $numPos < $columnLength; $numPos++) {
+                for ($row = 0; $row < count($problems[$i]); $row++) {
+                    $numberParts = str_split($problems[$i][$row]);
+                    $numbers[$numPos] .= array_reverse($numberParts)[$numPos];
                 }
-
             }
-
             $part2[] = $this->calculate($operation, $numbers);
         }
 
