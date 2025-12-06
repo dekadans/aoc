@@ -7,7 +7,7 @@
  * runs the first part of the December 2nd puzzle
  */
 
-require 'vendor/autoload.php';
+require_once __DIR__ . '/../vendor/autoload.php';
 
 $app = new \Advent\Common\Application($argv);
 

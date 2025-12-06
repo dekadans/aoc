@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Solutions;
+namespace AOC2025\Solutions;
 
 use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Output\OutputInterface;

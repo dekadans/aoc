@@ -5,9 +5,7 @@
 
 ## Install
 
-```shell
-composer install
-```
+- Run `composer install` in project root
 
 ## Run
 

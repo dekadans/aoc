@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace App\Solutions;
+namespace AOC2025\Solutions;
 
 use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Attribute\Option;

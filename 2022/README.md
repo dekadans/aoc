@@ -5,8 +5,8 @@
 
 ## Install
 
-- Save inputs as `inputs/1.txt`.
-- `composer install`
+- Run `composer install` in project root
+- Save inputs as `2022/inputs/1.txt`.
 
 ## Run
 
