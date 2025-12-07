@@ -12,7 +12,8 @@ $app->addCommands([
     new \AOC2025\Solutions\Day3(),
     new \AOC2025\Solutions\Day4(),
     new \AOC2025\Solutions\Day5(),
-    new \AOC2025\Solutions\Day6()
+    new \AOC2025\Solutions\Day6(),
+    new \AOC2025\Solutions\Day7()
 ]);
 
 $app->run();
