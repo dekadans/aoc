@@ -65,7 +65,7 @@ class Day8
                 unset($circuits[$i2c]);
             }
 
-            if ($c >= 1000 && $part1 === null) {
+            if ($c == 1000) {
                 // Part 1 calculation after 1000 combinations processed.
                 $partialCircuits = array_map(count(...), $circuits);
                 rsort($partialCircuits);
