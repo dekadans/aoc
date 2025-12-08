@@ -4,6 +4,8 @@ use Symfony\Component\Console\Application;
 
 require_once __DIR__ . '/../../vendor/autoload.php';
 
+ini_set('memory_limit','1G');
+
 $app = new Application('Advent of Code');
 
 $app->addCommands([
@@ -13,7 +15,8 @@ $app->addCommands([
     new \AOC2025\Solutions\Day4(),
     new \AOC2025\Solutions\Day5(),
     new \AOC2025\Solutions\Day6(),
-    new \AOC2025\Solutions\Day7()
+    new \AOC2025\Solutions\Day7(),
+    new \AOC2025\Solutions\Day8()
 ]);
 
 $app->run();
